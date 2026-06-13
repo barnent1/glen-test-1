@@ -74,7 +74,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-[var(--color-background)] text-[var(--color-foreground)]">
       {/* Hero / Welcome Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 to-slate-700 px-6 py-24 text-white sm:px-12 lg:px-24">
+      <section aria-label="Welcome" className="relative overflow-hidden bg-gradient-to-br from-slate-900 to-slate-700 px-4 py-24 text-white sm:px-6 lg:px-24">
         <motion.div
           variants={fadeInUp}
           initial="initial"
@@ -95,7 +95,7 @@ export default function Home() {
       </section>
 
       {/* About Card Section */}
-      <section className="px-6 py-16 sm:px-12 lg:px-24">
+      <section aria-label="About us" className="px-4 py-16 sm:px-6 lg:px-24">
         <div className="mx-auto max-w-4xl">
           <motion.div
             variants={fadeIn}
@@ -121,7 +121,7 @@ export default function Home() {
       </section>
 
       {/* Values Section */}
-      <section className="px-6 pb-24 sm:px-12 lg:px-24">
+      <section aria-label="Our values" className="px-4 pb-24 sm:px-6 lg:px-24">
         <div className="mx-auto max-w-6xl">
           <motion.h2
             variants={fadeInUp}
@@ -140,8 +140,9 @@ export default function Home() {
             className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
           >
             {companyData.values.map((value) => (
-              <motion.div
+              <motion.article
                 key={value.title}
+                aria-label={value.title}
                 variants={fadeInUp}
                 transition={{ duration: 0.5, ease: "easeOut" }}
                 className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md dark:border-slate-700 dark:bg-slate-800"
@@ -152,7 +153,7 @@ export default function Home() {
                 <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-300">
                   {value.description}
                 </p>
-              </motion.div>
+              </motion.article>
             ))}
           </motion.div>
         </div>
