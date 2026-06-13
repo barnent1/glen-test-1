@@ -14,6 +14,8 @@ interface ContactInfoProps {
   contact: Contact;
 }
 
+const isSafeUrl = (u: string): boolean => /^https?:\/\//i.test(u);
+
 export default function ContactInfo({ contact }: ContactInfoProps) {
   return (
     <div className="rounded-lg border bg-white p-6 shadow-sm">
@@ -37,17 +39,26 @@ export default function ContactInfo({ contact }: ContactInfoProps) {
           <div className="flex flex-col gap-2">
             <span className="text-sm font-medium text-gray-500">Social Media</span>
             <div className="flex flex-wrap gap-2">
-              {contact.socialMedia.map((item) => (
-                <a
-                  key={item.platform}
-                  href={item.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center px-4 py-2 rounded-md border border-gray-300 text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors"
-                >
-                  {item.platform}
-                </a>
-              ))}
+              {contact.socialMedia.map((item) =>
+                isSafeUrl(item.url) ? (
+                  <a
+                    key={item.platform}
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-4 py-2 rounded-md border border-gray-300 text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors"
+                  >
+                    {item.platform}
+                  </a>
+                ) : (
+                  <span
+                    key={item.platform}
+                    className="inline-flex items-center px-4 py-2 rounded-md border border-gray-300 text-sm font-medium text-gray-700"
+                  >
+                    {item.platform}
+                  </span>
+                )
+              )}
             </div>
           </div>
         )}
