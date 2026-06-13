@@ -1,12 +1,16 @@
-"use client";
-
-import { motion } from "framer-motion";
+import { type Metadata } from "next";
 import Navigation from "@/components/Navigation";
-import TeamMemberCard, { type TeamMember } from "@/components/TeamMemberCard";
+import AboutAnimatedTeam from "@/components/AboutAnimatedTeam";
 import ContactInfo from "@/components/ContactInfo";
+import { type TeamMember } from "@/components/TeamMemberCard";
 
-// ── Inline mock data (mock-data module not yet merged to main) ──────────────
+export const metadata: Metadata = {
+  title: "About | Quetrex Foundation",
+  description:
+    "Learn about the Quetrex Foundation — our mission, team, and contact information.",
+};
 
+// TODO(QUE-e879c601): Replace with shared mock data module when merged
 const aboutData = {
   mission:
     "The Quetrex Foundation exists to empower communities through open-access education, sustainable technology, and principled leadership — building a future where opportunity is universal and progress is shared.",
@@ -75,33 +79,7 @@ const contactData = {
   ],
 };
 
-// ── Framer Motion variants ──────────────────────────────────────────────────
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.12,
-    },
-  },
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 32 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.45, ease: "easeOut" as const },
-  },
-};
-
-const sectionVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
-};
-
-// ── Page component ──────────────────────────────────────────────────────────
+// ── Page component (Server Component) ──────────────────────────────────────
 
 export default function AboutPage() {
   return (
@@ -110,11 +88,8 @@ export default function AboutPage() {
 
       <main className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8 space-y-16">
         {/* ── Mission ── */}
-        <motion.section
+        <section
           aria-labelledby="mission-heading"
-          variants={sectionVariants}
-          initial="hidden"
-          animate="visible"
           className="rounded-2xl bg-indigo-700 px-8 py-12 text-white shadow-lg text-center"
         >
           <h1
@@ -126,14 +101,11 @@ export default function AboutPage() {
           <p className="text-lg leading-relaxed text-indigo-100 max-w-3xl mx-auto">
             {aboutData.mission}
           </p>
-        </motion.section>
+        </section>
 
         {/* ── Company description & founding info ── */}
-        <motion.section
+        <section
           aria-labelledby="who-we-are-heading"
-          variants={sectionVariants}
-          initial="hidden"
-          animate="visible"
           className="grid gap-8 md:grid-cols-2"
         >
           <div>
@@ -163,9 +135,9 @@ export default function AboutPage() {
               ))}
             </ul>
           </div>
-        </motion.section>
+        </section>
 
-        {/* ── Team grid ── */}
+        {/* ── Team grid (animated Client Component) ── */}
         <section aria-labelledby="team-heading">
           <h2
             id="team-heading"
@@ -173,28 +145,11 @@ export default function AboutPage() {
           >
             Meet the Team
           </h2>
-
-          <motion.div
-            className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            {teamMembers.map((member) => (
-              <motion.div key={member.name} variants={cardVariants}>
-                <TeamMemberCard member={member} />
-              </motion.div>
-            ))}
-          </motion.div>
+          <AboutAnimatedTeam teamMembers={teamMembers} />
         </section>
 
         {/* ── Contact information ── */}
-        <motion.section
-          aria-labelledby="contact-heading"
-          variants={sectionVariants}
-          initial="hidden"
-          animate="visible"
-        >
+        <section aria-labelledby="contact-heading">
           <h2
             id="contact-heading"
             className="text-2xl font-bold text-gray-900 mb-8 text-center"
@@ -204,7 +159,7 @@ export default function AboutPage() {
           <div className="max-w-lg mx-auto">
             <ContactInfo contact={contactData} />
           </div>
-        </motion.section>
+        </section>
       </main>
     </div>
   );
