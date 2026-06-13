@@ -18,7 +18,7 @@ const isSafeUrl = (u: string): boolean => /^https?:\/\//i.test(u);
 
 export default function ContactInfo({ contact }: ContactInfoProps) {
   return (
-    <section aria-label="Contact information">
+    <div>
       <div className="rounded-lg border bg-white p-6 shadow-sm">
         <address className="not-italic space-y-4">
           <div className="flex flex-col gap-1">
@@ -66,6 +66,6 @@ export default function ContactInfo({ contact }: ContactInfoProps) {
           )}
         </address>
       </div>
-    </section>
+    </div>
   );
 }
