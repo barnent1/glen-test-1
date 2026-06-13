@@ -1,7 +1,5 @@
 import type { Contact, TeamMember, Company } from "@/lib/types";
 
-export type { Contact, TeamMember, Company };
-
 export const mockContact: Contact = {
   email: "hello@example.com",
   phone: "+1 (555) 123-4567",
@@ -18,19 +16,19 @@ export const mockTeamMembers: TeamMember[] = [
     id: "1",
     name: "Jane Smith",
     role: "CEO & Co-Founder",
-    bio: "Jane brings 15 years of industry experience and a passion for innovation.",
+    bio: "Jane brings 15 years of industry experience and a passion for innovation at Quetrex Foundation.",
   },
   {
     id: "2",
     name: "John Doe",
     role: "CTO & Co-Founder",
-    bio: "John leads our engineering team with a focus on scalable architecture.",
+    bio: "John leads the Quetrex Foundation engineering team with a focus on scalable architecture.",
   },
 ];
 
 export const mockCompany: Company = {
-  name: "Example Corp",
+  name: "Quetrex Foundation",
   tagline: "Building the future, one line at a time.",
   description:
-    "We are a team of passionate engineers and designers committed to creating world-class software solutions.",
+    "Quetrex Foundation is a team of passionate engineers and designers committed to creating world-class software solutions.",
 };

@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { ContactInfo } from "@/components/ContactInfo";
+import { mockContact, mockCompany, mockTeamMembers } from "@/lib/mockData";
 
 export const metadata: Metadata = {
   title: "About | Quetrex Foundation",
   description:
     "Learn about the Quetrex Foundation — our mission, team, and contact information.",
 };
-import { mockContact, mockCompany, mockTeamMembers } from "@/lib/mockData";
 
 export default function AboutPage() {
   return (
