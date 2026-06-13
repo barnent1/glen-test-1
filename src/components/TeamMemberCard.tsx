@@ -24,6 +24,7 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
           src={member.imageUrl}
           alt={`Photo of ${member.name}`}
           fill
+          unoptimized
           className="object-cover"
         />
       </div>
