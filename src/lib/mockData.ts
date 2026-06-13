@@ -1,25 +1,6 @@
-export interface Contact {
-  email: string;
-  phone: string;
-  address: string;
-  socialLinks: {
-    label: string;
-    url: string;
-  }[];
-}
+import type { Contact, TeamMember, Company } from "@/lib/types";
 
-export interface TeamMember {
-  id: string;
-  name: string;
-  role: string;
-  bio: string;
-}
-
-export interface Company {
-  name: string;
-  tagline: string;
-  description: string;
-}
+export type { Contact, TeamMember, Company };
 
 export const mockContact: Contact = {
   email: "hello@example.com",

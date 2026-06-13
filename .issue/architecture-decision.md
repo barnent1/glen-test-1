@@ -55,7 +55,7 @@ Single workstream — no parallel splits.
 | `src/app/about/page.tsx` | Developer WS-1 | Primary change: swap inline contact JSX for `<ContactInfo />` |
 | `src/app/about/page.test.tsx` *(if tests exist)* | Developer WS-1 | Update/create tests for the refactored page |
 
-No other files are touched.
+> **Note (consolidated approach):** The upstream branches for the About page (`5f74a7af`) and ContactInfo component (`6c484e6a`) were not merged before this branch was created. Consequently, `src/components/ContactInfo.tsx`, `src/lib/mockData.ts`, and `src/lib/types.ts` were created directly in this branch. The sibling branches have not yet merged, so this branch contains all necessary files to complete the refactor end-to-end.
 
 ---
 

@@ -1,4 +1,4 @@
-import type { Contact } from "@/lib/mockData";
+import type { Contact } from "@/lib/types";
 
 interface ContactInfoProps {
   contact: Contact;
@@ -26,8 +26,12 @@ export function ContactInfo({ contact }: ContactInfoProps) {
           <h3>Follow Us</h3>
           <ul>
             {contact.socialLinks.map((link) => (
-              <li key={link.label}>
-                <a href={link.url} target="_blank" rel="noopener noreferrer">
+              <li key={link.url}>
+                <a
+                  href={/^https?:\/\//i.test(link.url) ? link.url : "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {link.label}
                 </a>
               </li>
@@ -38,5 +42,3 @@ export function ContactInfo({ contact }: ContactInfoProps) {
     </div>
   );
 }
-
-export default ContactInfo;
