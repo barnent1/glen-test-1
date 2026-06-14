@@ -29,7 +29,7 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
       </div>
       <div className="p-6 flex flex-col gap-2">
         <h3 className="text-lg font-semibold">{member.name}</h3>
-        <p className="text-sm text-muted-foreground">{member.title}</p>
+        <p className="text-sm text-gray-500">{member.title}</p>
         <p className="text-sm">{member.bio}</p>
       </div>
     </div>

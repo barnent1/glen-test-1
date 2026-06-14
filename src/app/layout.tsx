@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "App",
-  description: "App description",
+  title: "Quetrex Foundation",
+  description: "Quetrex Foundation — empowering communities through innovation.",
 };
 
 export default function RootLayout({
