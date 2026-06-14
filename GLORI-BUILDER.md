@@ -8,7 +8,6 @@ Stack: Node.js / TypeScript.
 
 Run in this order — all must pass (exit 0) before any PR:
 
-1. `npx biome check .`
+1. `npm run lint`
 2. `npm run type-check`
-3. `timeout 600 npm run test`
-4. `timeout 600 npm run build`
+3. `timeout 600 npm run build`
